@@ -1,5 +1,6 @@
 package com.demo.belajarspring.entity.onetomany.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
 import org.hibernate.annotations.OnDelete;
@@ -28,5 +29,6 @@ public class Comment implements Serializable{
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "posts_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
     private Posts posts;
 }

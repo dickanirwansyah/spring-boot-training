@@ -1,8 +1,10 @@
 package com.demo.belajarspring.entity.onetomany.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -27,10 +29,9 @@ public class Posts implements Serializable{
     @NotBlank(message = "content must not be null")
     private String content;
 
+    @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "created_at")
     private Date createdAt;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "posts")
-    @JsonIgnore
-    private Set<Comment> comments = new HashSet<>();
 }
