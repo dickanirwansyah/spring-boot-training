@@ -15,24 +15,3 @@ public class BelajarSpringApplication {
 		SpringApplication.run(BelajarSpringApplication.class, args);
 	}
 }
-
-
-//@Component
-//class DataInitializer implements CommandLineRunner{
-//
-//	@Autowired
-//	private KategoriRepo kategoriRepo;
-//
-//	@Override
-//	public void run(String... args) throws Exception {
-//		String[] names = {"kalung", "bingkai", "kemeja"};
-//
-//		for (int i=0; i < names.length; i++){
-//			kategoriRepo.save(
-//					Kategori.builder()
-//						.name(names[i])
-//							.active(true)
-//							.build());
-//		}
-//	}
-//}

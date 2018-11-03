@@ -59,13 +59,6 @@ public class IPersonDAO implements GenericDAO<Person> {
     }
 
     public boolean isExisting(String email, String firstname){
-//        String hql="FROM Person as p WHERE p.email=? and p.firstname=?";
-//        int count = entityManager.createQuery(hql)
-//                .setParameter(1, email)
-//                .setParameter(2, firstname)
-//                .getResultList()
-//                .size();
-
         int count = personRepo.findByEmailAndFirstname(email, firstname).size();
         return count > 0 ? true : false;
     }
